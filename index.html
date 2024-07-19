@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Wonders Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="symbols/gear.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>7 Wonders Calculator</h1>
+        <div class="tabs">
+            <button class="tablink active" onclick="openTab(event, 'BySymbol')">Mode Normal</button>
+            <button class="tablink" onclick="openTab(event, 'ByCard')">Mode Avancé</button>
+        </div>
+        <div id="BySymbol" class="tabcontent" style="display: block;">
+            <div class="calculator">
+                <form id="greenCardForm">
+                    <div class="section-category green">
+                        <div class="form-group">
+                            <label for="tablets"><img src="symbols/tablet.png" alt="Tablettes" class="icon"></label>
+                            <input type="number" id="tablets" class="inputField" name="tablets" min="0" step="1" placeholder="Tablettes">
+                        </div>
+                        <div class="form-group">
+                            <label for="compasses"><img src="symbols/compass.png" alt="Compas" class="icon"></label>
+                            <input type="number" id="compasses" class="inputField" name="compasses" min="0" step="1" placeholder="Compas">
+                        </div>
+                        <div class="form-group">
+                            <label for="gears"><img src="symbols/gear.png" alt="Rouages" class="icon"></label>
+                            <input type="number" id="gears" class="inputField" name="gears" min="0" step="1" placeholder="Rouages">
+                        </div>
+                        <div class="form-group special-card">
+                            <input type="checkbox" id="scienceGuild" class="inputField" name="scienceGuild">
+                            <label for="scienceGuild"><span>Guilde des Scientifiques</span></label>
+                        </div>
+                    </div>
+                    <div class="section-category military">
+                        <div class="form-group">
+                            <label for="military"><img src="symbols/shield.png" alt="Victoires militaires" class="icon"></label>
+                            <input type="number" id="military" class="inputField" name="military" min="0" step="1" placeholder="Victoires militaires">
+                        </div>
+                    </div>
+                    <div class="section-category civil">
+                        <div class="form-group">
+                            <label for="civil"><img src="symbols/civil.png" alt="Points civils" class="icon"></label>
+                            <input type="number" id="civil" class="inputField" name="civil" min="0" step="1" placeholder="Points civils">
+                        </div>
+                    </div>
+                    <div class="section-category commercial">
+                        <div class="form-group">
+                            <label for="commercial"><img src="symbols/commercial.png" alt="Points commerciaux" class="icon"></label>
+                            <input type="number" id="commercial" class="inputField" name="commercial" min="0" step="1" placeholder="Points commerciaux">
+                        </div>
+                    </div>
+                    <div class="section-category guild">
+                        <div class="form-group">
+                            <label for="guilds"><img src="symbols/guild.png" alt="Points de guildes" class="icon"></label>
+                            <input type="number" id="guilds" class="inputField" name="guilds" min="0" step="1" placeholder="Points de guildes">
+                        </div>
+                    </div>
+                    <div class="section-category wonder">
+                        <div class="form-group">
+                            <label for="wonders"><img src="symbols/wonder.png" alt="Points de merveilles" class="icon"></label>
+                            <input type="number" id="wonders" class="inputField" name="wonders" min="0" step="1" placeholder="Points de merveilles">
+                        </div>
+                    </div>
+                    <div class="section-category gold">
+                        <div class="form-group">
+                            <label for="gold"><img src="symbols/gold.png" alt="Pièces d'or" class="icon"></label>
+                            <input type="number" id="gold" class="inputField" name="gold" min="0" step="1" placeholder="Pièces d'or">
+                        </div>
+                    </div>
+                </form>
+                <div id="result">
+                    <h2>Points Totaux : <span id="totalPoints">0</span></h2>
+                    <p id="bestOption" style="display: none;">
+                        <span id="bestOptionText">Meilleure Option Guilde des Scientifiques :</span>
+                        <img id="bestOptionIcon" src="" alt="" class="icon" style="display: none;">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="ByCard" class="tabcontent">
+            <div class="card-calculator">
+                <div class="age-section age1">
+                    <div class="age-number">Âge 1</div>
+                    <div class="age-group">
+                        <div class="card-item">
+                            <input type="checkbox" id="atelier" class="cardCheckbox" name="atelier">
+                            <label for="atelier"><img src="symbols/gear.png" alt="Atelier" class="card-icon"> Atelier</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="scriptorium" class="cardCheckbox" name="scriptorium">
+                            <label for="scriptorium"><img src="symbols/tablet.png" alt="Scriptorium" class="card-icon"> Scriptorium</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="officine" class="cardCheckbox" name="officine">
+                            <label for="officine"><img src="symbols/compass.png" alt="Officine" class="card-icon"> Officine</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="age-section age2">
+                    <div class="age-number">Âge 2</div>
+                    <div class="age-group">
+                        <div class="card-item">
+                            <input type="checkbox" id="laboratoire" class="cardCheckbox" name="laboratoire">
+                            <label for="laboratoire"><img src="symbols/gear.png" alt="Laboratoire" class="card-icon"> Laboratoire</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="ecole" class="cardCheckbox" name="ecole">
+                            <label for="ecole"><img src="symbols/tablet.png" alt="École" class="card-icon"> École</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="bibliotheque" class="cardCheckbox" name="bibliotheque">
+                            <label for="bibliotheque"><img src="symbols/tablet.png" alt="Bibliothèque" class="card-icon"> Bibliothèque</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="dispensaire" class="cardCheckbox" name="dispensaire">
+                            <label for="dispensaire"><img src="symbols/compass.png" alt="Dispensaire" class="card-icon"> Dispensaire</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="age-section age3">
+                    <div class="age-number">Âge 3</div>
+                    <div class="age-group">
+                        <div class="card-item">
+                            <input type="checkbox" id="observatoire" class="cardCheckbox" name="observatoire">
+                            <label for="observatoire"><img src="symbols/gear.png" alt="Observatoire" class="card-icon"> Observatoire</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="etude" class="cardCheckbox" name="etude">
+                            <label for="etude"><img src="symbols/gear.png" alt="Étude" class="card-icon"> Étude</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="universite" class="cardCheckbox" name="universite">
+                            <label for="universite"><img src="symbols/tablet.png" alt="Université" class="card-icon"> Université</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="academie" class="cardCheckbox" name="academie">
+                            <label for="academie"><img src="symbols/compass.png" alt="Académie" class="card-icon"> Académie</label>
+                        </div>
+                        <div class="card-item">
+                            <input type="checkbox" id="loge" class="cardCheckbox" name="loge">
+                            <label for="loge"><img src="symbols/compass.png" alt="Loge" class="card-icon"> Loge</label>
+                        </div>
+                        <div class="card-item special-card">
+                            <input type="checkbox" id="guildeScientifiques" class="cardCheckbox" name="guildeScientifiques">
+                            <label for="guildeScientifiques"><span>Guilde des Scientifiques</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div id="cardResult">
+                    <h2>Points Totaux : <span id="totalPointsByCard">0</span></h2>
+                    <p id="bestOptionByCard" style="display: none;">
+                        <span id="bestOptionTextByCard">Meilleure Option Guilde des Scientifiques :</span>
+                        <img id="bestOptionIconByCard" src="" alt="" class="icon" style="display: none;">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
